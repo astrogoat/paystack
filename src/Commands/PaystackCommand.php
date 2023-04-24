@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Astrogoat\Paystack\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class PaystackCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'paystack';
 
     public $description = 'My command';
 
