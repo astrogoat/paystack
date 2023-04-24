@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Paystack\Tests;
 
+use Astrogoat\Paystack\PaystackServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Astrogoat\Paystack\PaystackServiceProvider;
 
 class TestCase extends Orchestra
 {
