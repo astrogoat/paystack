@@ -2,11 +2,11 @@
 
 namespace Astrogoat\Paystack;
 
+use Astrogoat\Paystack\Settings\PaystackSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\LegoManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Astrogoat\Paystack\Settings\PaystackSettings;
 
 class PaystackServiceProvider extends PackageServiceProvider
 {

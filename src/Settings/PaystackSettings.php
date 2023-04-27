@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Paystack\Settings;
 
+use Astrogoat\Paystack\Actions\PaystackAction;
 use Helix\Lego\Settings\AppSettings;
 use Illuminate\Validation\Rule;
-use Astrogoat\Paystack\Actions\PaystackAction;
 
 class PaystackSettings extends AppSettings
 {
