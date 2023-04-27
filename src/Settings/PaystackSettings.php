@@ -8,12 +8,14 @@ use Astrogoat\Paystack\Actions\PaystackAction;
 
 class PaystackSettings extends AppSettings
 {
-    // public string $url;
+     public string $secret_key;
+     public string $callback_url;
 
     public function rules(): array
     {
         return [
-            // 'url' => Rule::requiredIf($this->enabled === true),
+             'secret_key' => Rule::requiredIf($this->enabled === true),
+             'callback_url' => Rule::requiredIf($this->enabled === true),
         ];
     }
 

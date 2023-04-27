@@ -8,6 +8,7 @@ class CreatePaystackSettings extends SettingsMigration
     {
         $this->migrator->add('paystack.enabled', false);
         $this->migrator->add('paystack.secret_key', '');
+        $this->migrator->add('paystack.callback_url', '');
         // $this->migrator->addEncrypted('paystack.access_token', '');
     }
 
@@ -15,6 +16,7 @@ class CreatePaystackSettings extends SettingsMigration
     {
         $this->migrator->delete('paystack.enabled');
         $this->migrator->delete('paystack.secret_key');
+        $this->migrator->delete('paystack.callback_url');
         // $this->migrator->delete('paystack.access_token');
     }
 }
