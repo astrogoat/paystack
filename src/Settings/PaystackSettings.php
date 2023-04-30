@@ -8,8 +8,8 @@ use Illuminate\Validation\Rule;
 
 class PaystackSettings extends AppSettings
 {
-     public string $secret_key;
-     public string $callback_url;
+    public string $secret_key;
+    public string $callback_url;
 
     public function rules(): array
     {
