@@ -6,13 +6,13 @@ use Astrogoat\Paystack\Settings\PaystackSettings;
 
 class Paystack
 {
-
     public function initiatePayment($name, $customerEmail, $amount)
     {
         $response = json_decode($this->getAuthorizationUrl($name, $customerEmail, $amount));
         if($response->status) {
             return $response;
         }
+
         return null;
     }
 
@@ -24,7 +24,7 @@ class Paystack
             'first_name' => $name,
             'email' => $customerEmail,
             'amount' => $amount,
-            'callback_url' => settings(PaystackSettings::class, 'callback_url')
+            'callback_url' => settings(PaystackSettings::class, 'callback_url'),
         ];
 
         $fields_string = http_build_query($fields);
@@ -35,19 +35,20 @@ class Paystack
         $secretKey = settings(PaystackSettings::class, 'secret_key');
 
         // set the url, number of POST vars, POST data
-        curl_setopt($ch,CURLOPT_URL, $url);
-        curl_setopt($ch,CURLOPT_POST, true);
-        curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer ".$secretKey,
             "Cache-Control: no-cache",
-        ));
+        ]);
 
         // So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // execute post
         $result = curl_exec($ch);
+
         return $result;
     }
 
@@ -61,16 +62,17 @@ class Paystack
         $secretKey = settings(PaystackSettings::class, 'secret_key');
 
         // set the url
-        curl_setopt($ch,CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer ".$secretKey,
-        ));
+        ]);
 
         // So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         //execute post
         $result = curl_exec($ch);
+
         return $result;
     }
 }
