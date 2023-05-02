@@ -1,8 +1,8 @@
 {
-    "name": "astrogoat/paystack",
+    "name": "vibraniuum/paystack",
     "description": "A Paystack app for Strata",
     "keywords": [
-        "astrogoat",
+        "vibraniuum",
         "laravel",
         "paystack"
     ],
